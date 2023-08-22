@@ -1,0 +1,56 @@
+---
+import Article from '../elements/Article.astro';
+import Slider from '../elements/Slider.astro';
+const posts = [
+    {
+        title: 'ENISA a organizat prima conferință de politica',
+        time: '21.08.2023',
+        image: '/assets/images/hero.jpeg',
+    },
+    {
+        title: 'ENISA a organizat prima conferință de politica',
+        time: '21.08.2023',
+        image: '/assets/images/hero.jpeg',
+    },
+    {
+        title: 'ENISA a organizat prima conferință de politica',
+        time: '21.08.2023',
+        image: '/assets/images/hero.jpeg',
+    },
+    {
+        title: 'ENISA a organizat prima conferință de politica',
+        time: '21.08.2023',
+        image: '/assets/images/hero.jpeg',
+    },
+    {
+        title: 'ENISA a organizat prima conferință de politica',
+        time: '21.08.2023',
+        image: '/assets/images/hero.jpeg',
+    },
+    {
+        title: 'ENISA a organizat prima conferință de politica',
+        time: '21.08.2023',
+        image: '/assets/images/hero.jpeg',
+    },
+];
+
+const { colored } = Astro.props;
+---
+
+<section class="news" style={colored ? 'background-color: #faf9fc;' : ''} id="news">
+    <div class="news__container">
+        <div class="news__header">
+            <h2>Noutăți</h2>
+        </div>
+
+        <Slider className="news">
+            {
+                posts.map((post) => (
+                    <div class={`slider-news__slide`}>
+                        <Article title={post.title} time={post.time} image={post.image} />
+                    </div>
+                ))
+            }
+        </Slider>
+    </div>
+</section>

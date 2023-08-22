@@ -1,0 +1,48 @@
+---
+import Slider from '../elements/Slider.astro';
+import Document from '../elements/Document.astro';
+const { colored } = Astro.props;
+
+const documents = [
+    {
+        time: '27/03/2023',
+        name: 'Sıngurul vııtor pentru Moldova',
+    },
+    {
+        time: '27/03/2023',
+        name: 'Sıngurul vııtor pentru Moldova',
+    },
+    {
+        time: '27/03/2023',
+        name: 'Sıngurul vııtor pentru Moldova',
+    },
+    {
+        time: '27/03/2023',
+        name: 'Sıngurul vııtor pentru Moldova',
+    },
+    {
+        time: '27/03/2023',
+        name: 'Sıngurul vııtor pentru Moldova',
+    },
+    {
+        time: '27/03/2023',
+        name: 'Sıngurul vııtor pentru Moldova',
+    },
+    {
+        time: '27/03/2023',
+        name: 'Sıngurul vııtor pentru Moldova',
+    },
+];
+---
+
+<section class="documents" style={colored ? 'background-color: #faf9fc;' : ''} id="documents">
+    <div class="documents__container">
+        <div class="documents__header">
+            <h2>Documente</h2>
+        </div>
+
+        <Slider className="documents">
+            {documents.map((document) => <Document time={document.time} name={document.name} />)}
+        </Slider>
+    </div>
+</section>

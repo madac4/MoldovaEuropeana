@@ -1,0 +1,11 @@
+---
+const { image, title, time } = Astro.props;
+---
+
+<article class="article news-article">
+    <div class="news-article__body">
+        <img src={image} alt={title} />
+        <a href="#">{title}</a>
+        <time datetime={time}>{time}</time>
+    </div>
+</article>

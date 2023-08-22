@@ -1,0 +1,39 @@
+---
+import Video from '../elements/Video.astro';
+
+const { colored } = Astro.props;
+---
+
+<section class="gallery" style={colored ? 'background-color: #faf9fc;' : ''} id="gallery">
+    <div class="gallery__container">
+        <div class="gallery__header">
+            <h2>Galerie</h2>
+        </div>
+        <div class="page__gallery-slider gallery-slider gallery__body gallery-body">
+            <div class="gallery-slider__body">
+                <div class="gallery-slider__slider">
+                    <div class="slider-gallery__body swiper">
+                        <div class="slider-gallery__slide">
+                            <Video />
+                        </div>
+                        <div class="slider-gallery__slide">
+                            <Video />
+                        </div>
+                        <div class="slider-gallery__slide">
+                            <Video />
+                        </div>
+                        <div class="slider-gallery__slide">
+                            <Video />
+                        </div>
+                        <div class="slider-gallery__slide">
+                            <Video />
+                        </div>
+                        <div class="slider-gallery__slide">
+                            <Video />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

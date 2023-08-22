@@ -1,0 +1,30 @@
+---
+import Logo from './elements/Logo.astro';
+import Socials from './elements/Socials.astro';
+---
+
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__introduction">
+            <Logo logoClass="footer__logo" logoUrl="/assets/images/logo-white.svg" />
+
+            <nav class="footer__nav">
+                <ul>
+                    <li><a href="#about">Despre proiect</a></li>
+                    <li><a href="#gallery">Galerie</a></li>
+                    <li><a href="#news">Noutăți</a></li>
+                    <li><a href="#progress">Progres</a></li>
+                    <li><a href="#documents">Documente</a></li>
+                    <li><a href="#faq">Întrebări</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="footer__socials">
+            <Socials />
+        </div>
+    </div>
+    <div class="footer__copyrights copyright">
+        Copyright <time></time>. Toate drepturile sunt rezervate.
+    </div>
+</footer>

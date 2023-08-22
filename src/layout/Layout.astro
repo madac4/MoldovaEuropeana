@@ -1,0 +1,102 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../scss/style.scss';
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+        />
+        <title>Moldova Europeană</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <Header />
+            <main>
+                <slot />
+            </main>
+            <Footer />
+        </div>
+
+        <svg
+            width="815"
+            height="606"
+            viewBox="0 0 815 606"
+            fill="none"
+            class="animate-svg-1 animate-svg"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                id="path"
+                d="M814.11 605.16L728.35 541.41L0.530029 0.76001L465.78 45.16L466.83 46.84L742.19 489.54L743.25 491.27L746.29 496.11L814.12 605.15L814.11 605.16ZM28.3301 11.46L733.12 535L785.06 573.6L739.5 500.36L735.38 493.76L461.08 52.76L28.3401 11.46H28.3301Z"
+                fill="rgba(85, 130, 249, .1)"></path>
+        </svg>
+
+        <svg
+            width="516"
+            height="759"
+            viewBox="0 0 516 759"
+            fill="none"
+            class="animate-svg-2 animate-svg"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M368.33 758.08L0.560059 0.869995L515.22 383.14L514.1 385.99L368.32 758.08H368.33ZM22.05 26.8L367.55 738.16L505.55 385.93L22.05 26.81V26.8Z"
+                fill="rgba(85, 130, 249, .1)"></path>
+        </svg>
+
+        <svg
+            width="729"
+            height="682"
+            viewBox="0 0 729 682"
+            fill="none"
+            class="animate-svg-3 animate-svg"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M728.13 681.95L0.339966 0L508.78 233.74L509.41 235.02L728.13 681.95ZM41.76 27.85L701.77 646.29L502.85 239.82L41.76 27.85Z"
+                fill="rgba(85, 130, 249, .1)"></path>
+        </svg>
+
+        <svg
+            width="504"
+            height="337"
+            viewBox="0 0 504 337"
+            fill="none"
+            class="animate-svg-4 animate-svg"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M0.540039 336.58L197.19 0.369995L503.22 287.13L0.540039 336.59V336.58ZM199.03 13.0601L15.36 327.08L484.86 280.89L199.03 13.0601Z"
+                fill="rgba(85, 130, 249, .1)"></path>
+        </svg>
+
+        <svg
+            width="188"
+            height="734"
+            viewBox="0 0 188 734"
+            fill="none"
+            class="animate-svg-5 animate-svg"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M0 733.83L96.8 0.719971L187.97 396.11L0 733.83ZM98.94 45.61L13.43 693.26L179.49 394.91L98.94 45.61Z"
+                fill="rgba(85, 130, 249, .1)"></path>
+        </svg>
+
+        <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"
+        ></script>
+
+        <script
+            is:inline
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+        <script src="../scripts/index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+// Conectarea MIXINURILOR
+@import 'base/mixin.scss';
+// Conectarea Fonturilor
+@import 'base/fonts.scss';
+// Conectarea Fonturilor pentru Iconite
+@import 'base/icons.scss';
+// Variables
+@import 'base/variables.scss';
+// Stilurile de baza
+@import 'base/normalize.scss';
+
+@if ($responsiveType==1) {
+    [class*='__container'] {
+        @if ($maxWidthContainer>0) {
+            max-width: $maxWidthContainer + px;
+            box-sizing: content-box;
+            margin: 0 auto;
+        }
+        @if ($containerPadding>0) {
+            padding: 0 $containerPadding + px;
+        }
+    }
+} @else {
+    [class*='__container'] {
+        margin: 0 auto;
+        @if ($maxWidthContainer>0) {
+            max-width: $maxWidthContainer + px;
+            box-sizing: content-box;
+        } @else {
+            @if ($containerPadding>0) {
+                padding: 0 $containerPadding + px;
+            }
+        }
+        @media (max-width: $pc) {
+            max-width: 970px;
+        }
+        @media (max-width: $tablet) {
+            max-width: 750px;
+        }
+        @media (max-width: $mobile) {
+            max-width: none;
+            @if ($containerPadding>0 and $maxWidthContainer>0) {
+                padding: 0 $containerPadding + px;
+            }
+        }
+    }
+}
+
+// Conectarea stilurilor comune
+@import 'general';
+// Conectarea stilurilor pentru blocuri aparte
+@import 'components/footer.scss';
+@import 'components/header.scss';
+// Conectarea stilurilor pentru pagini
+@import 'pages/home.scss';
