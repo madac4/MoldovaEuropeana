@@ -1,45 +1,29 @@
 ---
 import Languages from './elements/Languages.astro';
 import Logo from './elements/Logo.astro';
-const menuItems = [
-    {
-        title: 'Despre proiect',
-        url: '#about',
-    },
-    {
-        title: 'Galerie',
-        url: '#gallery',
-    },
-    {
-        title: 'Noutăți',
-        url: '#news',
-    },
-    {
-        title: 'Progres',
-        url: '#progress',
-    },
-    {
-        title: 'Documente',
-        url: '#documents',
-    },
-    {
-        title: 'Întrebări',
-        url: '#faq',
-    },
-];
+import { getLangFromUrl } from '../i18n/utils';
+import fetchApi from '../lib/strapi';
+
+const lang = getLangFromUrl(Astro.url);
+
+const res = await fetchApi({
+    endpoint: `global?populate=deep&locale=${lang}`
+})
+
+const nav = res.attributes.navigation
 ---
 
 <header class="header">
     <div class="header__container">
-        <Logo logoClass="header__logo" logoUrl="/assets/images/full-logo.svg" />
+        <Logo logoClass="header__logo" logoUrl={res.attributes.logo.data.attributes.url} />
 
         <nav class="header__nav header-nav">
             <ul class="header-nav__list">
                 {
-                    menuItems.map((item) => (
-                        <li>
-                            <a href={item.url}>{item.title}</a>
-                        </li>
+                    nav.map((item) => (
+                        <a href={item.href}>
+                            {item.label}
+                        </a>
                     ))
                 }
             </ul>

@@ -1,5 +1,5 @@
 ---
-const { colored } = Astro.props;
+const { colored, data } = Astro.props;
 ---
 
 <section class="progress" style={colored ? 'background-color: #faf9fc;' : ''} id="progress">
@@ -7,76 +7,15 @@ const { colored } = Astro.props;
         <div class="progress__header"><h2>Progres</h2></div>
         <div class="progress__body progress-body">
             <div class="timeline"></div>
-            <div class="progress-body__item selected completed">
-                <time datetime="13-08-2023">13 aug 2023</time>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                </p>
-            </div>
-            <div class="progress-body__item">
-                <time datetime="13-08-2023">13 aug 2023</time>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                </p>
-            </div>
-            <div class="progress-body__item">
-                <time datetime="13-08-2023">13 aug 2023</time>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                </p>
-            </div>
-            <div class="progress-body__item">
-                <time datetime="13-08-2023">13 aug 2023</time>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                </p>
-            </div>
-            <div class="progress-body__item">
-                <time datetime="13-08-2023">13 aug 2023</time>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                </p>
-            </div>
-            <div class="progress-body__item">
-                <time datetime="13-08-2023">13 aug 2023</time>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                </p>
-            </div>
-            <div class="progress-body__item">
-                <time datetime="13-08-2023">13 aug 2023</time>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                </p>
-            </div>
-            <div class="progress-body__item">
-                <time datetime="13-08-2023">13 aug 2023</time>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                </p>
-            </div>
-            <div class="progress-body__item">
-                <time datetime="13-08-2023">13 aug 2023</time>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                </p>
-            </div>
-            <div class="progress-body__item">
-                <time datetime="13-08-2023">13 aug 2023</time>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                </p>
-            </div>
+
+            {data.progress.map((prog, i) =>(
+                <div class={`progress-body__item ${i === 0 && 'selected'} ${prog.completed}`}>
+                    <time datetime={prog.date}>{prog.date}</time>
+                    <p>
+                        {prog.title}
+                    </p>
+                </div>
+            ))}
         </div>
     </div>
 </section>

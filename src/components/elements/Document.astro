@@ -1,9 +1,9 @@
 ---
-const { time, name } = Astro.props;
+const { time, name, doc } = Astro.props;
 ---
 
 <div class="document">
     <time datetime={time}>{time}</time>
     <h4>{name}</h4>
-    <a href="#" class="button button__primary">Descarcă</a>
+    <a href={import.meta.env.STRAPI_URL+doc} class="button button__primary">Descarcă</a>
 </div>

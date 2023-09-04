@@ -1,5 +1,5 @@
 ---
-const { colored } = Astro.props;
+const { colored, data } = Astro.props;
 ---
 
 <section class="hero" style={colored ? 'background-color: #faf9fc;' : ''}>
@@ -8,7 +8,7 @@ const { colored } = Astro.props;
             class="hero__body hero-body"
             style="background: linear-gradient(0deg, rgba(43, 99, 248, 0.20) 0%, rgba(43, 99, 248, 0.20) 100%), url('/assets/images/hero.jpeg') 50% 50% / cover no-repeat;"
         >
-            <h1 class="hero-body__title">Moldova Europeană</h1>
+            <h1 class="hero-body__title">{data.title}</h1>
             <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, minima similique
                 perspiciatis modi aut rem reiciendis vitae, nihil iure quasi eveniet odio earum

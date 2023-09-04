@@ -1,0 +1,23 @@
+---
+import { changeLanguage } from "i18next";
+import Layout from "../../../layout/Layout.astro";
+import fetchApi from "../../../lib/strapi";
+
+changeLanguage("en");
+
+export async function getStaticPaths() {
+    const articles = await fetchApi({
+        endpoint: `articles?populate=deep&locale=ro`
+    });
+    return articles.map(post => ({
+        params: { slug: post.attributes.slug },
+        props: { post }
+    }));
+}
+const post = Astro.props;
+const postBody = post.post.attributes;
+---
+
+<Layout>
+    <h1>{postBody.title}</h1>
+</Layout>

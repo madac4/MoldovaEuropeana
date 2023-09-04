@@ -1,40 +1,16 @@
 ---
 import Article from '../elements/Article.astro';
 import Slider from '../elements/Slider.astro';
-const posts = [
-    {
-        title: 'ENISA a organizat prima conferință de politica',
-        time: '21.08.2023',
-        image: '/assets/images/hero.jpeg',
-    },
-    {
-        title: 'ENISA a organizat prima conferință de politica',
-        time: '21.08.2023',
-        image: '/assets/images/hero.jpeg',
-    },
-    {
-        title: 'ENISA a organizat prima conferință de politica',
-        time: '21.08.2023',
-        image: '/assets/images/hero.jpeg',
-    },
-    {
-        title: 'ENISA a organizat prima conferință de politica',
-        time: '21.08.2023',
-        image: '/assets/images/hero.jpeg',
-    },
-    {
-        title: 'ENISA a organizat prima conferință de politica',
-        time: '21.08.2023',
-        image: '/assets/images/hero.jpeg',
-    },
-    {
-        title: 'ENISA a organizat prima conferință de politica',
-        time: '21.08.2023',
-        image: '/assets/images/hero.jpeg',
-    },
-];
+import fetchApi from "../../lib/strapi";
+import { getLangFromUrl } from "../../i18n/utils";
 
 const { colored } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+
+const articles = await fetchApi({
+    endpoint: `articles?populate=deep&locale=${lang}`
+});
 ---
 
 <section class="news" style={colored ? 'background-color: #faf9fc;' : ''} id="news">
@@ -45,9 +21,9 @@ const { colored } = Astro.props;
 
         <Slider className="news">
             {
-                posts.map((post) => (
+                articles.map((post) => (
                     <div class={`slider-news__slide`}>
-                        <Article title={post.title} time={post.time} image={post.image} />
+                        <Article title={post.attributes.title} time={post.attributes.date} image={post.attributes.image.data.attributes.url} slug={post.attributes.slug} />
                     </div>
                 ))
             }

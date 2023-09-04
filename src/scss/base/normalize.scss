@@ -11,6 +11,7 @@ html {
     -webkit-text-size-adjust: 100%;
     position: relative;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 body {
     font-family: $fontFamily, sans-serif;

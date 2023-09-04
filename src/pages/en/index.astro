@@ -1,0 +1,51 @@
+---
+import Layout from "../../layout/Layout.astro";
+import Hero from "../../components/sections/Hero.astro";
+import About from "../../components/sections/About.astro";
+import Gallery from "../../components/sections/Gallery.astro";
+import News from "../../components/sections/News.astro";
+import Questions from "../../components/sections/Questions.astro";
+import Documents from "../../components/sections/Documents.astro";
+import Progress from "../../components/sections/Progress.astro";
+import fetchApi from "../../lib/strapi";
+import { changeLanguage } from "i18next";
+import { getLangFromUrl } from "../../i18n/utils";
+
+changeLanguage("en");
+
+const lang = getLangFromUrl(Astro.url);
+const res = await fetchApi({
+    endpoint: `home?populate=deep&locale=en`
+});
+const blocks = res.attributes.blocks;
+---
+
+<Layout>
+    {
+        blocks && blocks.map(block => {
+            switch (block.__component) {
+                case 'blocks.hero':
+                    return <Hero data={block} key={block.__component} />
+                case 'blocks.about':
+                    return <About data={block} key={block.__component} />
+                case 'blocks.galley':
+                    return <Gallery data={block} key={block.__component} colored={true} />
+                default:
+                    return null
+            }
+        })
+    }
+    <News />
+    {blocks && blocks.map(block => {
+        switch (block.__component) {
+            case 'blocks.progress':
+                return <Progress data={block} key={block.__component} />
+            case 'blocks.docs':
+                return <Documents data={block} key={block.__component} colored={true}  />
+            case 'blocks.faq':
+                return <Questions data={block} key={block.__component} colored={true} />
+            default:
+                return null
+        }
+    })}
+</Layout>

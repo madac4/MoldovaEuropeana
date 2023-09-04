@@ -1,6 +1,6 @@
 ---
 import Accordion from '../elements/Accordion.astro';
-const { colored } = Astro.props;
+const { colored, data } = Astro.props;
 
 const items = [
     {
@@ -28,7 +28,7 @@ const items = [
         <div class="faq__header"><h2>Întrebări</h2></div>
 
         <div class="faq__body faq-body">
-            {items.map((item) => <Accordion question={item.question} answer={item.answer} />)}
+            {data.FAQ.map((item) => <Accordion question={item.question} answer={item.answer} />)}
         </div>
     </div>
 </section>

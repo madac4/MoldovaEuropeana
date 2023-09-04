@@ -1,7 +1,7 @@
 ---
 import Slider from '../elements/Slider.astro';
 import Document from '../elements/Document.astro';
-const { colored } = Astro.props;
+const { colored, data } = Astro.props;
 
 const documents = [
     {
@@ -42,7 +42,7 @@ const documents = [
         </div>
 
         <Slider className="documents">
-            {documents.map((document) => <Document time={document.time} name={document.name} />)}
+            {data.Docs.map((document) => <Document time={document.date} name={document.title} doc={document.doc.data.attributes.url} />)}
         </Slider>
     </div>
 </section>

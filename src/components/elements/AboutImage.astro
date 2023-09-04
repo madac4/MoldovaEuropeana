@@ -1,10 +1,10 @@
 ---
-const { labelPosition, imagePosition } = Astro.props;
+const { labelPosition, imagePosition, img } = Astro.props;
 ---
 
 <div class="about-image">
     <span class=`about-image__label ${labelPosition} ${labelPosition ? 'position' : 'initial'}`
         >Integrare Europeana</span
     >
-    <img class={imagePosition} src="/assets/images/hero.jpeg" alt="" />
+    <img class={imagePosition} src={import.meta.env.STRAPI_URL + img} alt="" />
 </div>

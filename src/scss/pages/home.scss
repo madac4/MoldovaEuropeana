@@ -85,7 +85,7 @@
                             display: block;
                         }
                     }
-                    &.top-left {
+                    &.topLeft {
                         top: 10px;
                         left: -80%;
                         padding-left: 0;
@@ -95,11 +95,11 @@
                             left: initial;
                         }
                     }
-                    &.top-right {
+                    &.topRight {
                         top: 10px;
                         @include adaptiv-value('right', -240, -200, 1);
                     }
-                    &.bottom-left {
+                    &.bottomLeft {
                         bottom: 5px;
                         padding-left: 0;
                         @include adaptiv-value('left', -240, -200, 1);
@@ -109,7 +109,7 @@
                             left: initial;
                         }
                     }
-                    &.bottom-right {
+                    &.bottomRight {
                         bottom: 5px;
                         @include adaptiv-value('right', -240, -200, 1);
                     }

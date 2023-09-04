@@ -1,12 +1,19 @@
 ---
 import Logo from './elements/Logo.astro';
 import Socials from './elements/Socials.astro';
+
+import fetchApi from '../lib/strapi';
+
+
+const res = await fetchApi({
+    endpoint: 'global?populate=whiteLogo'
+})
 ---
 
 <footer class="footer">
     <div class="footer__container">
         <div class="footer__introduction">
-            <Logo logoClass="footer__logo" logoUrl="/assets/images/logo-white.svg" />
+            <Logo logoClass="footer__logo" logoUrl={res.attributes.whiteLogo.data.attributes.url} />
 
             <nav class="footer__nav">
                 <ul>

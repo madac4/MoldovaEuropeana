@@ -1,6 +1,5 @@
 import gsap from 'gsap';
 import { sliders } from './slider';
-import Lenis from '@studio-freight/lenis';
 import SplitType from 'split-type';
 
 const burger = document.querySelector('.burger');
@@ -113,16 +112,6 @@ if (copyrightElements.length > 0) {
         }
     });
 }
-
-const lenis = new Lenis({
-    duration: 1.5,
-});
-
-function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
 
 gsap.registerPlugin(ScrollTrigger);
 

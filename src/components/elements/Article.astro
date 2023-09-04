@@ -1,11 +1,18 @@
 ---
-const { image, title, time } = Astro.props;
+import { useTranslatedPath, getLangFromUrl, getArticlePath } from "../../i18n/utils";
+
+const { image, title, time, slug } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+const articlePath = getArticlePath(slug, lang)
+
 ---
 
 <article class="article news-article">
     <div class="news-article__body">
-        <img src={image} alt={title} />
-        <a href="#">{title}</a>
+        <img src={import.meta.env.STRAPI_URL+image} alt={title} />
+        <a href={articlePath}>{title}</a>
         <time datetime={time}>{time}</time>
     </div>
 </article>
